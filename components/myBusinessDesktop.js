@@ -1,13 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { motion } from "framer-motion"
+import { useRouter } from 'next/router'
 // Components.
 import Footer from '../components/footerDesktop'
 // Styling.
 import styles from '../styles/mybusiness_desktop.module.css'
+import IndexNavBar from './indexNavBar'
+import DownloadModal from './downloadModal';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
-function MyBusinessDesktop({ setShowDownloadModal }) {
-    const parallaxRef = useRef()
+function MyBusinessDesktop() {
+    const parallaxRef = useRef();
+    const [show, setShow] = useState(false);
+    const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
 
     // This means changing one sections offset will auto push the later sections down correctly,
     // making factor (size) changes easier to manage.
@@ -46,8 +54,16 @@ function MyBusinessDesktop({ setShowDownloadModal }) {
     }, [])
 
     return (
-            
-        <Parallax pages={totalPages} style={{ top: '0', left: '0' }} ref={parallaxRef}>
+        <>
+        
+        <DownloadModal showModal={show}  handleClose={handleClose}/>
+        <Parallax className={styles.section1bg} pages={totalPages} style={{ top:0,  left: '0'}} ref={parallaxRef}>
+           
+        <ParallaxLayer  style={{zIndex: 2}}>
+        <IndexNavBar/>
+           
+            </ParallaxLayer>
+       
 
             {/* SECTION 1 BACKGROUND */}
             <ParallaxLayer
@@ -59,33 +75,35 @@ function MyBusinessDesktop({ setShowDownloadModal }) {
             {/* SECTION 1 - TEXT*/}
             <ParallaxLayer
             className={styles.section1}
-            speed={-0.5}
+            
             >
-                <h1 className='h1' style={{color: '#fff', marginTop: '20vh', fontFamily: 'Arial'}}>
+                <Row>
+                    <Col xs={12}  lg={6} md={6} sm={6}>
+                    <h1 className='h1' style={{color: '#fff', marginTop: '20vh', fontFamily: 'Arial', fontSize:'96px'}}>
                     WELCOME.
                 </h1>
 
-                <h2 className='h2' style={{color: '#fff', marginTop: '2vh'}}>
+                <h2 className='h2' style={{color: '#fff', marginTop: '2vh', fontSize:'36px'}}>
                     To your beautiful new digital presence
                 </h2>
 
-                <h4 className='h4' style={{color: '#fff', marginTop: '2vh'}}>
+                <h4 className='h4' style={{color: '#fff', marginTop: '2vh', fontSize:'20px'}}>
                     Local Pocket helps ambitious businesses attract new and returning customers. Poviding powerful, flexible, easy to use systems for creating unique loyalty programs alonside your beautiful new digital presence with just your phone!
                 </h4>
+                    </Col>
+                    <Col className={styles.section1Image} xs={12} lg={6} md={6} sm={6}>
+                    <img
+                src="/mybusiness1.png"
+                alt=""
+                objectFit='contain'
+                
+                />
+                    </Col>
+                    </Row>
+                
             </ParallaxLayer>
 
-            {/* SECTION 1 - IMAGES*/}
-            <ParallaxLayer
-            className={styles.section1}
-            speed={0.5}
-            >
-                <img
-                src="diagonalPhones.png"
-                alt=""
-                objectFit='cover'
-                className={styles.section1Image}
-                />
-            </ParallaxLayer>
+            
 
             {/* SECTION 2 & 3 BACKGROUND */}
             <ParallaxLayer
@@ -98,12 +116,12 @@ function MyBusinessDesktop({ setShowDownloadModal }) {
 
             {/* SECTION 2 - L */}
             <ParallaxLayer
-            offset={offsetS2}
+            offset={offsetS2+0.3}
             factor={sizeS2}
             className={styles.section2}
             style={{display: 'flex', justifyContent: 'center'}}
             >
-                <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-end', width: '1300px', maxWidth: '1300px' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-end', width: '1500px', maxWidth: '1500px' }}>
 
                     <div className={styles.vertical} />
 
@@ -120,10 +138,10 @@ function MyBusinessDesktop({ setShowDownloadModal }) {
             className={styles.section2}
             style={{display: 'flex', justifyContent: 'center'}}
             >
-                <div style={{ display: 'flex', justifyContent: 'center', width: '1300px', maxWidth: '1300px' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', width: '1500px', maxWidth: '1500px' }}>
 
                     <img
-                    src="businessPhoto1.png"
+                    src="/promotion.png"
                     alt="Screenshot of..."
                     resize='contain'
                     className={styles.section2Image}
@@ -141,7 +159,7 @@ function MyBusinessDesktop({ setShowDownloadModal }) {
             style={{display: 'flex', justifyContent: 'center'}}
             >
         
-                <div style={{ display: 'flex', justifyContent: 'flex-end', width: '1300px', maxWidth: '1300px' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', width: '1500px', maxWidth: '1500px' }}>
                     
                     <div className={styles.section2Text}>
                         <h3 className='h3' style={{color: '#fff', textAlign: 'center', marginBottom: '3vh'}}>
@@ -155,7 +173,7 @@ function MyBusinessDesktop({ setShowDownloadModal }) {
                         </h5>
 
                         <motion.button
-                        onClick={() => setShowDownloadModal(true)}
+                        onClick={() => setShow(true)}
                         className={styles.signUp}
                         whileHover={{ opacity: 0.6, scale: 1.02 }}
                         whileTap={{ scale: 1.1 }}
@@ -172,14 +190,14 @@ function MyBusinessDesktop({ setShowDownloadModal }) {
 
             {/* SECTION 3 - TEXT */}
             <ParallaxLayer
-            offset={offsetS3}
+            offset={offsetS3+0.1}
             factor={sizeS3}
             speed={-0.4}
             className={styles.section3}
             style={{display: 'flex', justifyContent: 'center', zIndex: 3}}
             >
         
-                <div style={{ display: 'flex', justifyContent: 'flex-start', width: '1300px', maxWidth: '1300px' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-start', width: '1500px', maxWidth: '1500px' }}>
                     
                     <div className={styles.section3Text}>
                         <h3 className='h3' style={{color: '#fff', textAlign: 'center', marginBottom: '3vh'}}>
@@ -193,7 +211,7 @@ function MyBusinessDesktop({ setShowDownloadModal }) {
                         </h5>
 
                             <motion.button
-                            onClick={() => setShowDownloadModal(true)}
+                            onClick={() => setShow(true)}
                             className={styles.signUp}
                             whileHover={{ opacity: 0.6, scale: 1.02 }}
                             whileTap={{ scale: 1.1 }}
@@ -216,7 +234,7 @@ function MyBusinessDesktop({ setShowDownloadModal }) {
             style={{display: 'flex', justifyContent: 'center'}}
             >
 
-                <div style={{ display: 'flex', justifyContent: 'flex-end', width: '1300px', maxWidth: '1300px' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', width: '1500px', maxWidth: '1500px' }}>
                     
                     <div className={styles.verticalP} />
 
@@ -236,10 +254,10 @@ function MyBusinessDesktop({ setShowDownloadModal }) {
             style={{display: 'flex', justifyContent: 'center', zIndex: 2}}
             >
         
-                <div style={{ display: 'flex', justifyContent: 'center', width: '1300px', maxWidth: '1300px' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', width: '1500px', maxWidth: '1500px' }}>
                     
                     <img
-                    src="businessPhoto2.png"
+                    src="/account.png"
                     alt="Screenshot of..."
                     resize='contain'
                     className={styles.section3Image}
@@ -258,6 +276,7 @@ function MyBusinessDesktop({ setShowDownloadModal }) {
             </ParallaxLayer>
 
         </Parallax>
+        </>
     )
 }
 

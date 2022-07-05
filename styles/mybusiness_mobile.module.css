@@ -1,7 +1,7 @@
 .section1Background {
     height: 100vh;
     width: 100vw;
-    background-color: #5A66D1;
+    background-color: #5a66d1;
 }
 
 .section1 {
@@ -9,6 +9,7 @@
     padding-right: 5vw;
     width: 100vw;
     max-width: 100vw;
+    padding-top: 10vh;
 }
 
 .section1Image {
@@ -20,7 +21,7 @@
 .gradientBackground {
     height: 100vh;
     width: 100vw;
-    background-image: linear-gradient(to right, #5A66D1, #8E96E4, #5A66D1);
+    background-image: linear-gradient(to right, #5a66d1, #8e96e4, #5a66d1);
     z-index: -1;
 }
 
@@ -38,7 +39,7 @@
 
 .vertical {
     display: flex;
-    height: 140vh;
+    height: 50vh;
     width: 100px;
     background-color: #fff;
 }
@@ -53,11 +54,12 @@
 .section2Text {
     display: flex;
     flex-direction: column;
+    
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 60vw;
-    max-width: 60vw;
+    /* width: 60vw;
+    max-width: 60vw; */
     margin-right: 3vw;
 }
 
@@ -66,7 +68,7 @@
     max-width: 250px;
     margin-left: 100px;
     border-radius: 15px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
 }
 
 .section3 {
@@ -85,8 +87,8 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 53vw;
-    max-width: 60vw;
+    /* width: 53vw;
+    max-width: 60vw; */
 }
 
 .section3Image {
@@ -94,7 +96,7 @@
     max-width: 250px;
     margin-right: 20px;
     border-radius: 15px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
 }
 
 .circle {
@@ -118,7 +120,7 @@
 
 .verticalP {
     display: flex;
-    height: 120vh;
+    height: 40vh;
     width: 50px;
     background-color: #fff;
 }

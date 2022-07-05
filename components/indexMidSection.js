@@ -2,7 +2,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import ReactPlayer from "react-player";
 
 
 // Styling.
@@ -13,11 +12,11 @@ function IndexMidSection() {
       <div className={`${ styles.videoColumn}`}>
       <Container fluid  >
         <Row  >
-          <Col className={`${ styles.videoColumn1 } py-5 px-4 }`} xs={12} lg={6}>
+          <Col className={`${ styles.videoColumn1 } py-5 px-5 }`} xs={12} lg={6}>
             <p className={styles.heading}>WHAT IS LOCAL POCKET?</p>
 
             <p className={styles.bodytext}>
-              Pocket is a bespoke mobile app helping to connect diverse
+              Local Pocket is a bespoke mobile app helping to connect diverse
               customers with independent businesses within a local neighbourhood
               Based on a unique “local community” concept that allows different
               trades to offer promotions and discounts on goods or services
@@ -34,15 +33,11 @@ function IndexMidSection() {
             </p>
           </Col>
           <Col className={`${ styles.videoColumn2 } g-0}`} xs={12} lg={6}>
-            <div className="player-wrapper">
-              <ReactPlayer
-                url='video.mp4'
-                className="react-player"
-                
-                
-              
-              />
-            </div>
+            
+            <video className="player-wrapper" controls style={{ width: '100%', height: '100%' }}>
+        <source src="/video.mp4#t=1.0" />
+      </video>
+            
           </Col>
         </Row>
         <Container fluid className={styles.visioncontainer}>
@@ -57,9 +52,9 @@ function IndexMidSection() {
             local  customers so that they can thrive in the local market.
           </p>
         </Row>
-        <br></br>
        
-        <Container className={`${ styles.valuesContainer} py-5`} fluid>
+       
+        <Container className={`${ styles.valuesContainer} `} fluid>
         <p className={styles.bodyheading2}>OUR VALUES </p><br></br>
           <Row  className={`${styles.valuesRow}  `}>
             <Col  xs={12} lg={4}>
@@ -102,21 +97,12 @@ their local customers</p><br></br>
               </Col>
             </Col>
           </Row>
-          <Container className={`${ styles.productServiceContainer} py-5 px-4`} fluid>
+          <Container className={`${ styles.productServiceContainer} px-4`} fluid>
             
           <p className={styles.serviceheading}>PRODUCT AND SERVICE</p>
           <br></br>
           <Row className={`${ styles.productServiceRow}  `}>
-            <Col  xs={12} lg={4}>
-              <img
-                src="/service1.svg"
-                className="d-inline-block align-center"
-                alt="Customer-insights"
-              />
-              <br></br><br></br>
-              <p className={styles.servicebodytext}>Our service offering is an online loyalty scheme aimed specifically at local markets, connecting local businesses with local customers.</p>
-            </Col>
-            <Col  xs={12} lg={4}>
+          <Col  xs={12} lg={4}>
               <img
                 src="/service2.svg"
                 className="d-inline-block align-center"
@@ -126,6 +112,16 @@ their local customers</p><br></br>
               <p className={styles.servicebodytext}>Customers utilising Local Pocket will be able to take advantage of discounts on products and services from businesses in their local area. The customer will be able to search specifically using GPS on their mobile phone to find local businesses offering discounts on their products and services.</p><br></br>
             
             </Col>
+            <Col  xs={12} lg={4}>
+              <img
+                src="/service1.svg"
+                className="d-inline-block align-center"
+                alt="Customer-insights"
+              />
+              <br></br><br></br>
+              <p className={styles.servicebodytext}>Our service offering is an online loyalty scheme aimed specifically at local markets, connecting local businesses with local customers.</p>
+            </Col>
+            
             <Col  xs={12} lg={4}>
               <img
                 src="/service3.svg"
